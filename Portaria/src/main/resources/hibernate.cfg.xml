@@ -34,7 +34,7 @@
 
 		<!-- Mapeamento das entidades -->
 		<mapping class="br.gov.ba.ceped.portaria.domain.Estado" />
-
+		<mapping class="br.gov.ba.ceped.portaria.domain.Funcionario" />
 
 	</session-factory>
 
