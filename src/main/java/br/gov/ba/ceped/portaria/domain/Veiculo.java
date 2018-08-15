@@ -1,7 +1,5 @@
 package br.gov.ba.ceped.portaria.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,62 +7,49 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_veiculo")
 public class Veiculo {
-	
-		@Column(name = "veic_marca", length = 40, nullable = false)
-		private String marca;
-		
-		@Column(name = "veic_modelo", length = 20, nullable = false)
-		private String modelo;
 
-		@Column(name = "veic_placa", nullable = false, length = 7, unique = true)
-		private String placa;
+	@Column(name = "veic_marca", length = 40, nullable = false)
+	private String marca;
 
-		@Column(name = "veic_empresa", nullable = false)
-		private String empresa;
-		
-		@Column(name = "veic_tipo")
-		private Enum Tipo;
+	@Column(name = "veic_modelo", length = 20, nullable = false)
+	private String modelo;
 
-		public String getMarca() {
-			return marca;
-		}
+	@Column(name = "veic_placa", nullable = false, length = 7, unique = true)
+	private String placa;
 
-		public void setMarca(String marca) {
-			this.marca = marca;
-		}
+	@Column(name = "veic_empresa", nullable = false)
+	private String empresa;
 
-		public String getModelo() {
-			return modelo;
-		}
+	public String getMarca() {
+		return marca;
+	}
 
-		public void setModelo(String modelo) {
-			this.modelo = modelo;
-		}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 
-		public String getPlaca() {
-			return placa;
-		}
+	public String getModelo() {
+		return modelo;
+	}
 
-		public void setPlaca(String placa) {
-			this.placa = placa;
-		}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 
-		public String getEmpresa() {
-			return empresa;
-		}
+	public String getPlaca() {
+		return placa;
+	}
 
-		public void setEmpresa(String empresa) {
-			this.empresa = empresa;
-		}
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
 
-		public Enum getTipo() {
-			return Tipo;
-		}
+	public String getEmpresa() {
+		return empresa;
+	}
 
-		public void setTipo(Enum tipo) {
-			Tipo = tipo;
-		}
-		
-		
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
 
 }

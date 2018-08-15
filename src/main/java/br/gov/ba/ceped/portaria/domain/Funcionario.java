@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "tbl_funcionarios")
 public class Funcionario extends GenericDomain {
@@ -11,7 +12,7 @@ public class Funcionario extends GenericDomain {
 	@Column(name = "fun_nome", length = 40, nullable = false)
 	private String nome;
 
-	@Column(name = "fun_cpf", nullable = false, unique = true)
+	@Column(name = "fun_cpf", length = 13 , nullable = false, unique = true)
 	private String cpf;
 	
 	@Column(name = "fun_setor", length = 40, nullable = false)

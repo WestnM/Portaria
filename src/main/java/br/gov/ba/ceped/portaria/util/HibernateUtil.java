@@ -17,6 +17,7 @@ public class HibernateUtil {
 		try {
 			Configuration configuracao = new Configuration().configure();
 
+			@SuppressWarnings("unused")
 			ServiceRegistry registro = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
 					.build();
 			SessionFactory fabrica = configuracao.buildSessionFactory();

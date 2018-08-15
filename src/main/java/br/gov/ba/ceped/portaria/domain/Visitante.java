@@ -4,21 +4,20 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "tbl_pessoa")
-public class Pessoa extends GenericDomain implements Serializable {
+@Table(name = "tbl_visitante")
+public class Visitante extends GenericDomain implements Serializable {
 
-	@Column(name = "pes_nome", length = 40, nullable = false)
+	@Column(name = "vis_nome", length = 40, nullable = false)
 	private String nome;
 
-	@Column(name = "pes_cpf", nullable = false, unique = true)
+	@Column(name = "vis_cpf", nullable = false, unique = true)
 	private String cpf;
 
-	@Column(name = "pes_telefone")
+	@Column(name = "vis_telefone")
 	private String telefone;
 
 	public String getNome() {
