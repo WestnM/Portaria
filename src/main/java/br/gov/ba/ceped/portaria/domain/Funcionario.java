@@ -1,5 +1,4 @@
 package br.gov.ba.ceped.portaria.domain;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -7,34 +6,31 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tbl_funcionarios")
-public class Funcionario extends GenericDomain {
-	
-	@Column(name = "fun_nome", length = 40, nullable = false)
-	private String nome;
+public class Funcionario extends Pessoa {
 
-	@Column(name = "fun_cpf", length = 13 , nullable = false, unique = true)
-	private String cpf;
-	
+	@Column(name = "fun_matric", length = 40, nullable = false)
+	private String matricula;
+
 	@Column(name = "fun_setor", length = 40, nullable = false)
 	private String setor;
-
-	@Column(name = "fun_telefone")
-	private String telefone;
-
-	public String getNome() {
-		return nome;
+	
+	@Column(name = "fun_cargo", length = 40, nullable = false)
+	private String cargo;
+	
+	public String getCargo() {
+		return cargo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getSetor() {
@@ -44,16 +40,5 @@ public class Funcionario extends GenericDomain {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
-	
-
 
 }

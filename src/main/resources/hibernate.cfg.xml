@@ -33,10 +33,10 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Mapeamento das entidades -->
-		<mapping class="br.gov.ba.ceped.portaria.domain.Estado" />
+		<mapping class="br.gov.ba.ceped.portaria.domain.Empresa" />
 		<mapping class="br.gov.ba.ceped.portaria.domain.Funcionario" />
-		<mapping class="br.gov.ba.ceped.portaria.domain.Visitante" /><!-- 
-		<mapping class="br.gov.ba.ceped.portaria.domain.Veiculo" /> -->
+		<mapping class="br.gov.ba.ceped.portaria.domain.Visitante" /> 
+		<mapping class="br.gov.ba.ceped.portaria.domain.Veiculo" /> 
 		
 	</session-factory>
 
