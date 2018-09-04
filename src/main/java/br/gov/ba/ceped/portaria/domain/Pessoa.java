@@ -51,6 +51,11 @@ public class Pessoa extends GenericDomain {
 		this.telefone = telefone;
 	}
 
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", telefone=" + telefone + "]";
+	}
+
 	 
 	
 }

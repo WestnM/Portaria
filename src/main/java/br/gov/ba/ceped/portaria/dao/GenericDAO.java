@@ -14,6 +14,7 @@ public class GenericDAO<Entidade> {
 
 	private Class<Entidade> classe;
 
+	@SuppressWarnings("unchecked")
 	public GenericDAO() {
 		this.classe = (Class<Entidade>) ((ParameterizedType) getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];
@@ -38,10 +39,12 @@ public class GenericDAO<Entidade> {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public List<Entidade> listar() {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		try {
 			Criteria consulta = sessao.createCriteria(classe);
+			@SuppressWarnings("unchecked")
 			List<Entidade> resultado = consulta.list();
 			return resultado;
 		} catch (RuntimeException erro) {
@@ -56,6 +59,7 @@ public class GenericDAO<Entidade> {
 	public Entidade buscar(Long codigo) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		try {
+			@SuppressWarnings("deprecation")
 			Criteria consulta = sessao.createCriteria(classe);
 			consulta.add(Restrictions.idEq(codigo));
 			Entidade resultado = (Entidade) consulta.uniqueResult();
@@ -68,6 +72,22 @@ public class GenericDAO<Entidade> {
 
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Entidade buscarNome(String nome) {
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		try {
+			@SuppressWarnings("deprecation")
+			Criteria consulta = sessao.createCriteria(classe);
+			consulta.add(Restrictions.idEq(nome));
+			Entidade resultado = (Entidade) consulta.uniqueResult();
+			return resultado;
+		} catch (RuntimeException erro) {
+			throw erro;
+		} finally {
+			sessao.close();
+		}
+
+	}
 	public void excluir(Entidade entity) {
 
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();

@@ -1,16 +1,18 @@
 package br.gov.ba.ceped.portaria.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+/**
+ * @author WestnSouza
+ *
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tbl_funcionarios")
@@ -24,6 +26,10 @@ public class Funcionario extends GenericDomain implements Serializable {
 
 	@Column(name = "fun_cargo", length = 40, nullable = false)
 	private String cargo;
+	
+	@ManyToOne
+	@JoinColumn(name = "fun_empresa" )
+	private Empresa empresa;
 
 	@OneToOne
 	@JoinColumn(nullable = false)
@@ -37,16 +43,25 @@ public class Funcionario extends GenericDomain implements Serializable {
 		this.pessoa = pessoa;
 	}
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date pes_data;
+//	@Column(nullable = false)
+//	@Temporal(TemporalType.TIMESTAMP)
+//	private Date pes_data;
+//
+//	public Date getPes_data() {
+//		return pes_data;
+//	}
+//
+//	public void setPes_data(Date pes_data) {
+//		this.pes_data = pes_data;
+//	}
 
-	public Date getPes_data() {
-		return pes_data;
+	
+	public Empresa getEmpresa() {
+		return empresa;
 	}
 
-	public void setPes_data(Date pes_data) {
-		this.pes_data = pes_data;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 	public String getCargo() {
@@ -72,4 +87,11 @@ public class Funcionario extends GenericDomain implements Serializable {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [matricula=" + matricula + ", setor=" + setor + ", cargo=" + cargo + ", empresa=" + empresa
+				+ ", pessoa=" + pessoa + "]";
+	}
+	
 }
