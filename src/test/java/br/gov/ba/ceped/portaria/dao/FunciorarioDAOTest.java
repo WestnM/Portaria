@@ -1,5 +1,6 @@
 package br.gov.ba.ceped.portaria.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Ignore;
@@ -34,6 +35,7 @@ public class FunciorarioDAOTest {
 		funcionario.setPessoa(pessoa);
 		funcionario.setSetor("GERIM");
 		funcionario.setEmpresa(empresa);
+		funcionario.setPes_data(new Date());
 						
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		funcionarioDAO.salvar(funcionario);

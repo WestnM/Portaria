@@ -2,9 +2,9 @@ package br.gov.ba.ceped.portaria.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,8 +13,9 @@ import javax.persistence.Table;
 @Table(name = "tbl_visitante")
 public class Visitante extends GenericDomain implements Serializable {
 
-	@Column(name = "vis_empresa", length = 40, nullable = false)
-	private String empresa;
+	@ManyToOne
+	@JoinColumn
+	private Empresa empresa;
 	
 	@OneToOne
 	@JoinColumn(nullable = false)
@@ -28,11 +29,18 @@ public class Visitante extends GenericDomain implements Serializable {
 		this.pessoa = pessoa;
 	}
 
-	public String getEmpresa() {
+	public Empresa getEmpresa() {
 		return empresa;
 	}
 
-	public void setEmpresa(String empresa) {
+	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
+
+	@Override
+	public String toString() {
+		return "Visitante [" + empresa + ", " + pessoa + "]";
+	}
+	
+	
 }

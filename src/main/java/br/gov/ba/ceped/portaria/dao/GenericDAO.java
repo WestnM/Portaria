@@ -73,12 +73,12 @@ public class GenericDAO<Entidade> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Entidade buscarNome(String nome) {
+	public Entidade buscarNome(String campo, String nome) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		try {
 			@SuppressWarnings("deprecation")
 			Criteria consulta = sessao.createCriteria(classe);
-			consulta.add(Restrictions.idEq(nome));
+			consulta.add(Restrictions.ilike(campo, nome));
 			Entidade resultado = (Entidade) consulta.uniqueResult();
 			return resultado;
 		} catch (RuntimeException erro) {

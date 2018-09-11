@@ -3,6 +3,9 @@ package br.gov.ba.ceped.portaria.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+
+// CLASSE ESTADO
+
 @SuppressWarnings("serial")
 @Entity
 public class Empresa extends GenericDomain{

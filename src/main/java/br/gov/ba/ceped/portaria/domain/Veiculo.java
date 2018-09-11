@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,8 +15,10 @@ import javax.persistence.TemporalType;
 public class Veiculo {
 	
 	@ManyToOne
-	@JoinColumn(nullable = false)
-	private Empresa empresa;
+	private Visitante vis_condutor;
+	
+	@ManyToOne
+	private Funcionario fun_condutor;
 
 	@Column(name = "veic_marca", length = 40, nullable = false)
 	private String marca;
@@ -26,7 +27,7 @@ public class Veiculo {
 	private String modelo;
 
 	@Id
-	@Column(name = "veic_placa", nullable = false, length = 7, unique = true)
+	@Column(name = "veic_placa", nullable = false, length = 8, unique = true)
 	private String placa;
 
 	@Column(name = "veic_km_entrada")
@@ -36,6 +37,30 @@ public class Veiculo {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date veic_data;
 	
+	public Visitante getCondutor() {
+		return vis_condutor;
+	}
+
+	public void setCondutor(Visitante condutor) {
+		this.vis_condutor = condutor;
+	}
+
+	public Funcionario getFun_condutor() {
+		return fun_condutor;
+	}
+
+	public void setFun_condutor(Funcionario fun_condutor) {
+		this.fun_condutor = fun_condutor;
+	}
+
+	public Date getVeic_data() {
+		return veic_data;
+	}
+
+	public void setVeic_data(Date veic_data) {
+		this.veic_data = veic_data;
+	}
+
 	public Date getData() {
 		return veic_data;
 	}
@@ -75,11 +100,5 @@ public class Veiculo {
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-	public Empresa getEmpresa() {
-		return empresa;
-	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
 }

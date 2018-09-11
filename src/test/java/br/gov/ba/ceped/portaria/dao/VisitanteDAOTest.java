@@ -16,21 +16,22 @@ public class VisitanteDAOTest {
 	public void salvar() {
 		Pessoa pessoa1 = new Pessoa();
 		pessoa1.setNome("Westn");
-		PessoaDAO westn = new PessoaDAO ();
+		PessoaDAO westn = new PessoaDAO();
 		westn.salvar(pessoa1);
 		PessoaDAO pessoaDAO = new PessoaDAO();
 		Pessoa pessoa = pessoaDAO.buscar(4L);
-		
+
 		Empresa empresa = new Empresa();
 		empresa.setNomeFantasia("secti");
 		empresa.setCnpj("123456");
-		
+
 		EmpresaDAO empresaDAO = new EmpresaDAO();
 		empresaDAO.salvar(empresa);
-					
+
 		Visitante visitante = new Visitante();
 		visitante.setPessoa(pessoa);
-							
+		visitante.setEmpresa(empresa);
+
 		VisitanteDAO visitanteDAO = new VisitanteDAO();
 		visitanteDAO.salvar(visitante);
 	}
@@ -38,13 +39,13 @@ public class VisitanteDAOTest {
 	@Test
 	@Ignore
 	public void listar() {
-		EmpresaDAO empresaDAO = new EmpresaDAO();
-		List<Empresa> resultado = empresaDAO.listar();
+		VisitanteDAO visitanteDAO = new VisitanteDAO();
+		List<Visitante> resultado = visitanteDAO.listar();
 
 		System.out.println("Quantidade de registros; " + resultado.size());
 
-		for (Empresa empresa : resultado) {
-			System.out.println(empresa.getCnpj() + " - " + empresa.getNomeFantasia() + " - " + empresa.getCodigo());
+		for (Visitante visitante : resultado) {
+			System.out.println(visitante.getCodigo() + " - " + visitante.getPessoa() + " - " + visitante.getEmpresa());
 
 		}
 	}
@@ -54,50 +55,67 @@ public class VisitanteDAOTest {
 	public void buscar() {
 		Long codigo = 5L;
 
-		EmpresaDAO empresaDAO = new EmpresaDAO();
-		Empresa empresa = empresaDAO.buscar(codigo);
+		VisitanteDAO visitanteDAO = new VisitanteDAO();
+		Visitante visitante = visitanteDAO.buscar(codigo);
 
-		if (empresa == null) {
+		if (visitante == null) {
 			System.out.println("Nenhum registro encontrado");
 		} else {
 			System.out.println("Registro encontrado:");
-			System.out.println(empresa.getCodigo() + " - " + empresa.getNomeFantasia() + " - " + empresa.getCnpj());
+			System.out.println(visitante.getCodigo() + " - " + visitante.getPessoa() + " - " + visitante.getEmpresa());
 		}
 	}
-	
+
 	@Test
 	@Ignore
 	public void excluir() {
 		Long codigo = 8L;
-		EmpresaDAO empresaDAO = new EmpresaDAO();
-		Empresa empresa = empresaDAO.buscar(codigo);
-		if (empresa == null) {
+		VisitanteDAO visitanteDAO = new VisitanteDAO();
+		Visitante visitante = visitanteDAO.buscar(codigo);
+		if (visitante == null) {
 			System.out.println("Nenhum registro encontrado");
 		} else {
-			empresaDAO.excluir(empresa);
+			visitanteDAO.excluir(visitante);
 			System.out.println("Registro removido:");
-			System.out.println(empresa.getCodigo() + " - " + empresa.getNomeFantasia() + " - " + empresa.getCnpj());
+			System.out.println(visitante.getCodigo() + " - " + visitante.getPessoa() + " - " + visitante.getEmpresa());
 		}
-				
+
 	}
-	
+
 	@Test
 	@Ignore
 	public void editar() {
-		Long codigo = 10L;
-		EmpresaDAO empresaDAO = new EmpresaDAO();
-		Empresa empresa = empresaDAO.buscar(codigo);
-		
-		if (empresa == null) {
+		Long codigo = 6L;
+		VisitanteDAO visitanteDAO = new VisitanteDAO();
+		Visitante visitante = visitanteDAO.buscar(codigo);
+
+		Pessoa pessoa1 = new Pessoa();
+		pessoa1.setNome("Westn Melo");
+		pessoa1.setCpf("123456122");
+		pessoa1.setRg("12456987122");
+		pessoa1.setTelefone("993414345");
+		PessoaDAO westn = new PessoaDAO();
+		westn.salvar(pessoa1);
+
+		Empresa empresa = new Empresa();
+		empresa.setCnpj("12345");
+		empresa.setNomeFantasia("CEPED");
+		EmpresaDAO empresa1 = new EmpresaDAO();
+		empresa1.salvar(empresa);
+
+		if (visitante == null) {
 			System.out.println("Nenhum registro encontrado");
 		} else {
 			System.out.println("Registro antes:");
-			System.out.println(empresa.getCodigo() + " - " + empresa.getNomeFantasia() + " - " + empresa.getCnpj());
+			System.out.println(visitante.getCodigo() + " - " + visitante.getPessoa() + " - " + visitante.getEmpresa());
 		}
-		empresa.setCnpj("1012");
-		empresaDAO.editar(empresa);
+		visitante.setEmpresa(empresa);
+		visitante.setPessoa(pessoa1);
+		visitanteDAO.editar(visitante);
+		;
+
 		System.out.println("Registro atualizado:");
-		System.out.println(empresa.getCodigo() + " - " + empresa.getNomeFantasia() + " - " + empresa.getCnpj());
-		
+		System.out.println(visitante.getCodigo() + " - " + visitante.getPessoa() + " - " + visitante.getEmpresa());
+
 	}
 }
