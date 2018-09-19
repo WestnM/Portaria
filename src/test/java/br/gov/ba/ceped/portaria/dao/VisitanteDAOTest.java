@@ -1,11 +1,11 @@
 package br.gov.ba.ceped.portaria.dao;
 
 import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
 import br.gov.ba.ceped.portaria.domain.Empresa;
-import br.gov.ba.ceped.portaria.domain.Funcionario;
 import br.gov.ba.ceped.portaria.domain.Pessoa;
 import br.gov.ba.ceped.portaria.domain.Visitante;;
 
