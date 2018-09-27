@@ -4,7 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
+/**
+ * @author WestnSouza
+ *
+ */
 
 @SuppressWarnings("serial")
 @Entity

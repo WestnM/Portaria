@@ -7,7 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * @author WestnSouza
+ *
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tbl_visitante")

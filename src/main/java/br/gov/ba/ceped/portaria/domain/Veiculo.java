@@ -9,7 +9,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * @author WestnSouza
+ *
+ */
 @Entity
 @Table(name = "tbl_veiculo")
 public class Veiculo {

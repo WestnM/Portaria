@@ -3,7 +3,10 @@ package br.gov.ba.ceped.portaria.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-
+/**
+ * @author WestnSouza
+ *
+ */
 // CLASSE ESTADO
 
 @SuppressWarnings("serial")
